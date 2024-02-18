@@ -1,0 +1,2121 @@
+2023-09-24T05:14:29.209 - [ErrorLogger] - Error when executing MySQL query: 
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: GSS-API authentication exception
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:597)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at org.alexdev.kepler.dao.Storage.<init>(Storage.java:51)
+	at org.alexdev.kepler.dao.Storage.connect(Storage.java:71)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:85)
+Caused by: java.sql.SQLInvalidAuthorizationSpecException: GSS-API authentication exception
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:232)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1199)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:560)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:174)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:92)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:353)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:562)
+	... 5 more
+Caused by: java.sql.SQLException: GSS-API authentication exception
+	at org.mariadb.jdbc.internal.com.send.gssapi.StandardGssapiAuthentication.authenticate(StandardGssapiAuthentication.java:163)
+	at org.mariadb.jdbc.internal.com.send.SendGssApiAuthPacket.send(SendGssApiAuthPacket.java:110)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.authentication(AbstractConnectProtocol.java:918)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.handleConnectionPhases(AbstractConnectProtocol.java:850)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:507)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1195)
+	... 13 more
+Caused by: javax.security.auth.login.LoginException: Unable to obtain Principal Name for authentication 
+	at jdk.security.auth/com.sun.security.auth.module.Krb5LoginModule.promptForName(Krb5LoginModule.java:822)
+	at jdk.security.auth/com.sun.security.auth.module.Krb5LoginModule.attemptAuthentication(Krb5LoginModule.java:689)
+	at jdk.security.auth/com.sun.security.auth.module.Krb5LoginModule.login(Krb5LoginModule.java:597)
+	at java.base/javax.security.auth.login.LoginContext.invoke(LoginContext.java:755)
+	at java.base/javax.security.auth.login.LoginContext$4.run(LoginContext.java:679)
+	at java.base/javax.security.auth.login.LoginContext$4.run(LoginContext.java:677)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.login.LoginContext.invokePriv(LoginContext.java:677)
+	at java.base/javax.security.auth.login.LoginContext.login(LoginContext.java:587)
+	at org.mariadb.jdbc.internal.com.send.gssapi.StandardGssapiAuthentication.authenticate(StandardGssapiAuthentication.java:112)
+	... 18 more
+2023-09-24T09:09:39.442 - [ErrorLogger] - Error when executing MySQL query: 
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Could not connect to address=(host=127.0.0.1)(port=3306)(type=master) : Connection refused: no further information
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:597)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at org.alexdev.kepler.dao.Storage.<init>(Storage.java:51)
+	at org.alexdev.kepler.dao.Storage.connect(Storage.java:71)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:85)
+Caused by: java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=127.0.0.1)(port=3306)(type=master) : Connection refused: no further information
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:234)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:95)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1203)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:560)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:174)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:92)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:353)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:562)
+	... 5 more
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:535)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:585)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:666)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:501)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1195)
+	... 13 more
+2023-09-24T11:30:46.637 - [ErrorLogger] - Error occurred when handling (102) for user (Atheros):
+java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+	at org.alexdev.kepler.messages.incoming.catalogue.GCAP.handle(GCAP.java:37)
+	at org.alexdev.kepler.messages.MessageHandler.invoke(MessageHandler.java:513)
+	at org.alexdev.kepler.messages.MessageHandler.handleRequest(MessageHandler.java:500)
+	at org.alexdev.kepler.server.netty.connections.ConnectionHandler.channelRead0(ConnectionHandler.java:99)
+	at org.alexdev.kepler.server.netty.connections.ConnectionHandler.channelRead0(ConnectionHandler.java:20)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:323)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:297)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1408)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:677)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:612)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:529)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:491)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-09-24T11:31:02.899 - [ErrorLogger] - Error occurred when handling (102) for user (Atheros):
+java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+	at org.alexdev.kepler.messages.incoming.catalogue.GCAP.handle(GCAP.java:37)
+	at org.alexdev.kepler.messages.MessageHandler.invoke(MessageHandler.java:513)
+	at org.alexdev.kepler.messages.MessageHandler.handleRequest(MessageHandler.java:500)
+	at org.alexdev.kepler.server.netty.connections.ConnectionHandler.channelRead0(ConnectionHandler.java:99)
+	at org.alexdev.kepler.server.netty.connections.ConnectionHandler.channelRead0(ConnectionHandler.java:20)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:323)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:297)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:340)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1408)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:362)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:348)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:677)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:612)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:529)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:491)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-09-24T13:44:28.652 - [ErrorLogger] - Error when executing MySQL query: 
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Could not connect to address=(host=127.0.0.1)(port=3306)(type=master) : Connection refused: no further information
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:597)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at org.alexdev.kepler.dao.Storage.<init>(Storage.java:51)
+	at org.alexdev.kepler.dao.Storage.connect(Storage.java:71)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:85)
+Caused by: java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=127.0.0.1)(port=3306)(type=master) : Connection refused: no further information
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:234)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:95)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1203)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:560)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:174)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:92)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:353)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:562)
+	... 5 more
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:535)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:585)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:666)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:501)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1195)
+	... 13 more
+2023-09-24T13:46:14.070 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.getAllSettings(SettingsDao.java:90)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:15)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: SELECT setting, value FROM settings
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.073 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.getAllSettings(SettingsDao.java:99)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:15)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+2023-09-24T13:46:14.074 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['room.dispose.timer.enabled','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.076 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['stack.height.limit','8']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.078 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['carry.timer.seconds','300']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.079 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['credits.scheduler.timeunit','MINUTES']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.081 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['battleball.increase.points','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.084 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['roomdimmer.scripting.allowed','false']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.086 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['club.gift.timeunit','DAYS']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.088 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['sleep.timer.seconds','300']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.090 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['snowstorm.increase.points','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.091 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.reuse.interval','7']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.092 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['credits.scheduler.enabled','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.094 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['snowstorm.preparing.game.seconds','10']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.096 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['chat.bubble.timeout.seconds','15']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.097 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['recycler.item.quarantine.seconds','2592000']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.099 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['welcome.message.content','Hello, %username%! And welcome to the Kepler server!']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.099 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['max.connections.per.ip','2']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.100 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['vouchers.enabled','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.102 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.reuse.timeunit','DAYS']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.104 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['room.bots.enabled','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.105 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['fuck.aaron','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.107 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['snowstorm.restart.game.seconds','30']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.109 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['shutdown.minutes','1']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.110 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['events.expiry.minutes','120']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.112 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['recycler.max.time.to.collect.seconds','1800']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.113 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['users.figure.parts.default','100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,176,177,178,180,185,190,195,200,205,206,207,210,215,220,225,230,235,240,245,250,255,260,265,266,267,270,275,280,281,285,290,295,300,305,500,505,510,515,520,525,530,535,540,545,550,555,565,570,575,580,585,590,595,596,600,605,610,615,620,625,626,627,630,635,640,645,650,655,660,665,667,669,670,675,680,685,690,695,696,700,705,710,715,720,725,730,735,740']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.114 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['normalise.input.strings','false']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.116 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['credits.scheduler.interval','15']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.117 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.refresh.timeunit','DAYS']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.119 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['messenger.max.friends.club','600']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.121 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['battleball.game.lifetime.seconds','180']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.123 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.pages','28,3|29,3|31,3|32,3|33,3|34,3|35,3|36,3|40,3|43,3|30,6|37,6|38,6|39,6|44,6']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.125 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['afk.timer.seconds','900']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.126 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['disable.purchase.successful.alert','false']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.128 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['snowstorm.start.minimum.active.teams','2']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.131 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['welcome.message.enabled','false']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.132 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['battleball.start.minimum.active.teams','2']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.134 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['battleball.restart.game.seconds','30']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.136 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['snowstorm.ticket.charge','2']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.138 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['battleball.create.game.enabled','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.139 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['profile.editing','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.140 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['reset.sso.after.login','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.142 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['game.finished.listing.expiry.seconds','300']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.143 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['battleball.ticket.charge','2']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.145 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.reuse.throne.interval','30']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.146 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.page.id','2']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.147 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['club.gift.interval','31']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.148 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['club.gift.present.label','You have just received your monthly club gift!']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.150 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['players.online','0']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.152 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['messenger.max.friends.nonclub','100']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.155 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['users.figure.parts.club','100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,176,177,178,180,185,190,195,200,205,206,207,210,215,220,225,230,235,240,245,250,255,260,265,266,267,270,275,280,281,285,290,295,300,305,500,505,510,515,520,525,530,535,540,545,550,555,565,570,575,580,585,590,595,596,600,605,610,615,620,625,626,627,630,635,640,645,650,655,660,665,667,669,670,675,680,685,690,695,696,700,705,710,715,720,725,730,735,740,800,801,802,803,804,805,806,807,808,809,810,811,812,813,814,815,816,817,818,819,820,821,822,823,824,825,826,827,828,829,830,831,832,833,834,835,836,837,838,839,840,841,842,843,844,845,846,847,848,849,850,851,852,853,854,855,856,857,858,859,860,861,862,863,864,865,866,867,868,869,870,871,872,873']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.157 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['snowstorm.create.game.enabled','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.159 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.page.text','Okay this thing is fucking epic!<br><br>The time until the next rare is {rareCountdown}!']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.160 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['recycler.session.length.seconds','3600']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.163 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['room.dispose.timer.seconds','60']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.164 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['tutorial.enabled','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.165 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.reuse.throne.timeunit','DAYS']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.166 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['navigator.show.hidden.rooms','false']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.167 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.tick.time','0']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.169 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['chat.garbled.text','true']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.171 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['events.category.count','11']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.172 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['battleball.preparing.game.seconds','10']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.174 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['rare.cycle.refresh.interval','1']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.175 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['credits.scheduler.amount','20']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.177 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.newSetting(SettingsDao.java:122)
+	at org.alexdev.kepler.util.config.GameConfiguration.<init>(GameConfiguration.java:23)
+	at org.alexdev.kepler.util.config.GameConfiguration.getInstance(GameConfiguration.java:114)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:92)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: INSERT INTO settings (setting, value) VALUES (?, ?), parameters ['roller.tick.default','2000']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.180 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.public_roomwalkways' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.PublicRoomsDao.getWalkways(PublicRoomsDao.java:64)
+	at org.alexdev.kepler.game.room.handlers.walkways.WalkwaysManager.<init>(WalkwaysManager.java:18)
+	at org.alexdev.kepler.game.room.handlers.walkways.WalkwaysManager.getInstance(WalkwaysManager.java:104)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:93)
+Caused by: java.sql.SQLException: Table 'habbov14.public_roomwalkways' doesn't exist
+Query is: SELECT * FROM public_roomwalkways
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.181 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.PublicRoomsDao.getWalkways(PublicRoomsDao.java:74)
+	at org.alexdev.kepler.game.room.handlers.walkways.WalkwaysManager.<init>(WalkwaysManager.java:18)
+	at org.alexdev.kepler.game.room.handlers.walkways.WalkwaysManager.getInstance(WalkwaysManager.java:104)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:93)
+2023-09-24T13:46:14.183 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.items_definitions' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.ItemDao.getItemDefinitions(ItemDao.java:32)
+	at org.alexdev.kepler.game.item.ItemManager.<init>(ItemManager.java:29)
+	at org.alexdev.kepler.game.item.ItemManager.getInstance(ItemManager.java:203)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:94)
+Caused by: java.sql.SQLException: Table 'habbov14.items_definitions' doesn't exist
+Query is: SELECT * FROM items_definitions
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.184 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.ItemDao.getItemDefinitions(ItemDao.java:47)
+	at org.alexdev.kepler.game.item.ItemManager.<init>(ItemManager.java:29)
+	at org.alexdev.kepler.game.item.ItemManager.getInstance(ItemManager.java:203)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:94)
+2023-09-24T13:46:14.189 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.catalogue_pages' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.CatalogueDao.getPages(CatalogueDao.java:32)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.<init>(CatalogueManager.java:28)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.getInstance(CatalogueManager.java:272)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:95)
+Caused by: java.sql.SQLException: Table 'habbov14.catalogue_pages' doesn't exist
+Query is: SELECT * FROM catalogue_pages ORDER BY order_id ASC
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.190 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.CatalogueDao.getPages(CatalogueDao.java:46)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.<init>(CatalogueManager.java:28)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.getInstance(CatalogueManager.java:272)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:95)
+2023-09-24T13:46:14.190 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.catalogue_packages' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.CatalogueDao.getPackages(CatalogueDao.java:108)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.<init>(CatalogueManager.java:29)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.getInstance(CatalogueManager.java:272)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:95)
+Caused by: java.sql.SQLException: Table 'habbov14.catalogue_packages' doesn't exist
+Query is: SELECT * FROM catalogue_packages
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.191 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.CatalogueDao.getPackages(CatalogueDao.java:120)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.<init>(CatalogueManager.java:29)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.getInstance(CatalogueManager.java:272)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:95)
+2023-09-24T13:46:14.192 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.catalogue_items' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.CatalogueDao.getItems(CatalogueDao.java:69)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.<init>(CatalogueManager.java:30)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.getInstance(CatalogueManager.java:272)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:95)
+Caused by: java.sql.SQLException: Table 'habbov14.catalogue_items' doesn't exist
+Query is: SELECT * FROM catalogue_items ORDER BY order_id ASC
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.193 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.CatalogueDao.getItems(CatalogueDao.java:85)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.<init>(CatalogueManager.java:30)
+	at org.alexdev.kepler.game.catalogue.CatalogueManager.getInstance(CatalogueManager.java:272)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:95)
+2023-09-24T13:46:14.196 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rare_cycle' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.RareDao.getUsedRares(RareDao.java:72)
+	at org.alexdev.kepler.game.catalogue.RareManager.<init>(RareManager.java:44)
+	at org.alexdev.kepler.game.catalogue.RareManager.getInstance(RareManager.java:224)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:96)
+Caused by: java.sql.SQLException: Table 'habbov14.rare_cycle' doesn't exist
+Query is: SELECT sale_code, reuse_time FROM rare_cycle ORDER BY reuse_time DESC
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.197 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rare_cycle' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.RareDao.getUsedRares(RareDao.java:72)
+	at org.alexdev.kepler.game.catalogue.RareManager.<init>(RareManager.java:44)
+	at org.alexdev.kepler.game.catalogue.RareManager.getInstance(RareManager.java:224)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:96)
+Caused by: java.sql.SQLException: Table 'habbov14.rare_cycle' doesn't exist
+Query is: SELECT sale_code, reuse_time FROM rare_cycle ORDER BY reuse_time DESC
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.199 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rooms_models' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.RoomModelDao.getModels(RoomModelDao.java:22)
+	at org.alexdev.kepler.game.room.models.RoomModelManager.<init>(RoomModelManager.java:16)
+	at org.alexdev.kepler.game.room.models.RoomModelManager.getInstance(RoomModelManager.java:26)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:97)
+Caused by: java.sql.SQLException: Table 'habbov14.rooms_models' doesn't exist
+Query is: SELECT * FROM rooms_models
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.200 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.RoomModelDao.getModels(RoomModelDao.java:35)
+	at org.alexdev.kepler.game.room.models.RoomModelManager.<init>(RoomModelManager.java:16)
+	at org.alexdev.kepler.game.room.models.RoomModelManager.getInstance(RoomModelManager.java:26)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:97)
+2023-09-24T13:46:14.202 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rooms' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.Storage.execute(Storage.java:123)
+	at org.alexdev.kepler.dao.mysql.RoomDao.resetVisitors(RoomDao.java:24)
+	at org.alexdev.kepler.game.room.RoomManager.<init>(RoomManager.java:22)
+	at org.alexdev.kepler.game.room.RoomManager.getInstance(RoomManager.java:224)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:98)
+Caused by: java.sql.SQLException: Table 'habbov14.rooms' doesn't exist
+Query is: UPDATE rooms SET visitors_now = 0 WHERE visitors_now > 0
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.204 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rooms' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.Storage.execute(Storage.java:123)
+	at org.alexdev.kepler.dao.mysql.RoomDao.resetVisitors(RoomDao.java:24)
+	at org.alexdev.kepler.game.room.RoomManager.<init>(RoomManager.java:22)
+	at org.alexdev.kepler.game.room.RoomManager.getInstance(RoomManager.java:224)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:98)
+Caused by: java.sql.SQLException: Table 'habbov14.rooms' doesn't exist
+Query is: UPDATE rooms SET visitors_now = 0 WHERE visitors_now > 0
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.210 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rooms_events' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.EventsDao.removeExpiredEvents(EventsDao.java:76)
+	at org.alexdev.kepler.game.events.EventsManager.<init>(EventsManager.java:20)
+	at org.alexdev.kepler.game.events.EventsManager.getInstance(EventsManager.java:183)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:101)
+Caused by: java.sql.SQLException: Table 'habbov14.rooms_events' doesn't exist
+Query is: DELETE FROM rooms_events WHERE expire_time < ?, parameters [1695573974]
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 7 more
+2023-09-24T13:46:14.211 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rooms_events' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.EventsDao.getEvents(EventsDao.java:96)
+	at org.alexdev.kepler.game.events.EventsManager.<init>(EventsManager.java:22)
+	at org.alexdev.kepler.game.events.EventsManager.getInstance(EventsManager.java:183)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:101)
+Caused by: java.sql.SQLException: Table 'habbov14.rooms_events' doesn't exist
+Query is: SELECT * FROM rooms_events WHERE expire_time > ?, parameters [1695573974]
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.217 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rooms_categories' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.NavigatorDao.getCategories(NavigatorDao.java:34)
+	at org.alexdev.kepler.game.navigator.NavigatorManager.<init>(NavigatorManager.java:14)
+	at org.alexdev.kepler.game.navigator.NavigatorManager.getInstance(NavigatorManager.java:65)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:103)
+Caused by: java.sql.SQLException: Table 'habbov14.rooms_categories' doesn't exist
+Query is: SELECT * FROM rooms_categories ORDER BY order_id ASC 
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.218 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.NavigatorDao.getCategories(NavigatorDao.java:50)
+	at org.alexdev.kepler.game.navigator.NavigatorManager.<init>(NavigatorManager.java:14)
+	at org.alexdev.kepler.game.navigator.NavigatorManager.getInstance(NavigatorManager.java:65)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:103)
+2023-09-24T13:46:14.228 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.games_ranks' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.GameDao.getRanks(GameDao.java:29)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:44)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+Caused by: java.sql.SQLException: Table 'habbov14.games_ranks' doesn't exist
+Query is: SELECT * FROM games_ranks
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.229 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.GameDao.getRanks(GameDao.java:40)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:44)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+2023-09-24T13:46:14.230 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.games_maps' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.GameDao.getGameMaps(GameDao.java:58)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:45)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+Caused by: java.sql.SQLException: Table 'habbov14.games_maps' doesn't exist
+Query is: SELECT * FROM games_maps
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.231 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.GameDao.getGameMaps(GameDao.java:73)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:45)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+2023-09-24T13:46:14.232 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=5) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.updateSetting(SettingsDao.java:32)
+	at org.alexdev.kepler.game.catalogue.RareManager.saveTick(RareManager.java:243)
+	at org.alexdev.kepler.game.catalogue.RareManager.performRareManagerJob(RareManager.java:180)
+	at org.alexdev.kepler.game.GameScheduler.run(GameScheduler.java:136)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: UPDATE settings SET value = ? WHERE setting = ?, parameters ['1','rare.cycle.tick.time']
+java thread: pool-2-thread-1
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 13 more
+2023-09-24T13:46:14.232 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.games_player_spawns' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.GameDao.getGameSpawns(GameDao.java:120)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:46)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+Caused by: java.sql.SQLException: Table 'habbov14.games_player_spawns' doesn't exist
+Query is: SELECT * FROM games_player_spawns
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.234 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.GameDao.getGameSpawns(GameDao.java:130)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:46)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+2023-09-24T13:46:14.236 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.games_maps' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.GameDao.getBattleballTileMaps(GameDao.java:92)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:47)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+Caused by: java.sql.SQLException: Table 'habbov14.games_maps' doesn't exist
+Query is: SELECT * FROM games_maps WHERE game_type = 'battleball'
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.237 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.GameDao.getBattleballTileMaps(GameDao.java:101)
+	at org.alexdev.kepler.game.games.GameManager.<init>(GameManager.java:47)
+	at org.alexdev.kepler.game.games.GameManager.getInstance(GameManager.java:189)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:107)
+2023-09-24T13:46:14.299 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.external_texts' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.getTexts(SettingsDao.java:142)
+	at org.alexdev.kepler.game.texts.TextsManager.<init>(TextsManager.java:12)
+	at org.alexdev.kepler.game.texts.TextsManager.getInstance(TextsManager.java:40)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:110)
+Caused by: java.sql.SQLException: Table 'habbov14.external_texts' doesn't exist
+Query is: SELECT * FROM external_texts
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.299 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.getTexts(SettingsDao.java:150)
+	at org.alexdev.kepler.game.texts.TextsManager.<init>(TextsManager.java:12)
+	at org.alexdev.kepler.game.texts.TextsManager.getInstance(TextsManager.java:40)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:110)
+2023-09-24T13:46:14.301 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.recycler_rewards' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeQuery(MariaDbPreparedStatementClient.java:174)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.RecyclerDao.getRewards(RecyclerDao.java:25)
+	at org.alexdev.kepler.game.recycler.RecyclerManager.<init>(RecyclerManager.java:32)
+	at org.alexdev.kepler.game.recycler.RecyclerManager.getInstance(RecyclerManager.java:102)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:111)
+Caused by: java.sql.SQLException: Table 'habbov14.recycler_rewards' doesn't exist
+Query is: SELECT * FROM recycler_rewards ORDER BY id ASC
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 8 more
+2023-09-24T13:46:14.303 - [ErrorLogger] - Error when executing MySQL query: 
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.close()" because "resultSet" is null
+	at org.alexdev.kepler.dao.Storage.closeSilently(Storage.java:207)
+	at org.alexdev.kepler.dao.mysql.RecyclerDao.getRewards(RecyclerDao.java:37)
+	at org.alexdev.kepler.game.recycler.RecyclerManager.<init>(RecyclerManager.java:32)
+	at org.alexdev.kepler.game.recycler.RecyclerManager.getInstance(RecyclerManager.java:102)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:111)
+2023-09-24T13:46:14.305 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.updateSetting(SettingsDao.java:32)
+	at org.alexdev.kepler.Kepler.main(Kepler.java:115)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: UPDATE settings SET value = ? WHERE setting = ?, parameters ['0','players.online']
+java thread: main
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 5 more
+2023-09-26T05:51:44.159 - [ErrorLogger] - Failed to start MUS server on address: 127.0.0.1:12322
+2023-09-26T05:51:44.160 - [ErrorLogger] - Please double check there's no programs using the same port, and you have set the correct IP address to listen on.
+2023-09-26T05:51:44.180 - [ErrorLogger] - Failed to start RCON server on address: 127.0.0.1:12309
+2023-09-26T05:51:44.180 - [ErrorLogger] - Please double check there's no programs using the same port, and you have set the correct IP address to listen on.
+2023-09-26T05:51:44.202 - [ErrorLogger] - Failed to start game server on address: 127.0.0.1:12321
+2023-09-26T05:51:44.203 - [ErrorLogger] - Please double check there's no programs using the same port, and you have set the correct IP address to listen on.
+2023-09-28T07:36:30.557 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.rooms' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.RoomDao.saveVisitors(RoomDao.java:377)
+	at org.alexdev.kepler.game.room.managers.RoomEntityManager.leaveRoom(RoomEntityManager.java:350)
+	at org.alexdev.kepler.game.player.Player.dispose(Player.java:303)
+	at org.alexdev.kepler.server.netty.connections.ConnectionHandler.channelUnregistered(ConnectionHandler.java:76)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelUnregistered(AbstractChannelHandlerContext.java:160)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelUnregistered(ChannelInboundHandlerAdapter.java:53)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelUnregistered(AbstractChannelHandlerContext.java:160)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelUnregistered(DefaultChannelPipeline.java:1386)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelUnregistered(DefaultChannelPipeline.java:830)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:834)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:495)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.sql.SQLException: Table 'habbov14.rooms' doesn't exist
+Query is: UPDATE rooms SET visitors_now = ? WHERE id = ?, parameters [0,1000]
+java thread: nioEventLoopGroup-7-1
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 25 more
+2023-09-28T07:36:30.568 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.users' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.PlayerDao.saveLastOnline(PlayerDao.java:386)
+	at org.alexdev.kepler.game.player.Player.dispose(Player.java:308)
+	at org.alexdev.kepler.server.netty.connections.ConnectionHandler.channelUnregistered(ConnectionHandler.java:76)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelUnregistered(AbstractChannelHandlerContext.java:160)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelUnregistered(ChannelInboundHandlerAdapter.java:53)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelUnregistered(AbstractChannelHandlerContext.java:160)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelUnregistered(DefaultChannelPipeline.java:1386)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelUnregistered(DefaultChannelPipeline.java:830)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:834)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:495)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.sql.SQLException: Table 'habbov14.users' doesn't exist
+Query is: UPDATE users SET last_online = ? WHERE id = ?, parameters [1695897390,1]
+java thread: nioEventLoopGroup-7-1
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 24 more
+2023-09-28T07:36:30.574 - [ErrorLogger] - Error when executing MySQL query: 
+java.sql.SQLSyntaxErrorException: (conn=4) Table 'habbov14.settings' doesn't exist
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:236)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.getException(ExceptionMapper.java:165)
+	at org.mariadb.jdbc.MariaDbStatement.executeExceptionEpilogue(MariaDbStatement.java:238)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:232)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.execute(MariaDbPreparedStatementClient.java:159)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.alexdev.kepler.dao.mysql.SettingsDao.updateSetting(SettingsDao.java:32)
+	at org.alexdev.kepler.game.player.Player.dispose(Player.java:309)
+	at org.alexdev.kepler.server.netty.connections.ConnectionHandler.channelUnregistered(ConnectionHandler.java:76)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelUnregistered(AbstractChannelHandlerContext.java:160)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelUnregistered(ChannelInboundHandlerAdapter.java:53)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelUnregistered(AbstractChannelHandlerContext.java:160)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelUnregistered(DefaultChannelPipeline.java:1386)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:181)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelUnregistered(AbstractChannelHandlerContext.java:167)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelUnregistered(DefaultChannelPipeline.java:830)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:834)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:495)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.sql.SQLException: Table 'habbov14.settings' doesn't exist
+Query is: UPDATE settings SET value = ? WHERE setting = ?, parameters ['0','players.online']
+java thread: nioEventLoopGroup-7-1
+	at org.mariadb.jdbc.internal.util.LogQueryTool.exceptionWithQuery(LogQueryTool.java:163)
+	at org.mariadb.jdbc.internal.protocol.AbstractQueryProtocol.executeQuery(AbstractQueryProtocol.java:280)
+	at org.mariadb.jdbc.MariaDbPreparedStatementClient.executeInternal(MariaDbPreparedStatementClient.java:223)
+	... 24 more

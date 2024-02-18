@@ -1,0 +1,22 @@
+Habbo pack v14+ with kepler emulator 
+Released by Atheros
+
+How To Install:
+
+- Install MariaDB, put a password on your root user and save this for use later.
+- Install HeidiSQL, create a new connection with 127.0.0.1, user: root and the password.
+- Create a new database on HeidiSQL and put the name habbov14
+- Select the new database and click on Query on the tab menu 
+- Open kepler SQL file, select all content, copy and Paste the content on the Query window on HeidiSQL and press the button run (on top bar) do the same with the cleanup SQL.
+- Install java jdk
+- Open Kepler/run.bat to start the server
+- Open AtherosWebServer/iniciar.bat to start the websserver
+- Install shockwave "sw_lic_full_installer"
+- Install Pale Moon Browser, open and type http://127.0.0.1
+
+Have fun :)
+
+
+Official kepler links:
+https://github.com/Quackster/Kepler
+https://forum.ragezone.com/threads/kepler-java-v14-server-snowstorm-battleball-camera-wobble-squabble.1155773/unread
